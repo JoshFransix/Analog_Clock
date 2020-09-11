@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #091921;
+}
+
+body.light {
+  background: #d1dae3;
+}
+
+.clock {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(./img/clock.png) no-repeat center center/cover;
+  border: 4px solid #091921;
+  border-radius: 50%;
+  box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+    inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
+    inset 0 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.light .clock {
+  border: 4px solid #cad3dc;
+  box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.5),
+    inset 0 -15px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 10px rgba(0, 0, 0, 0.2), inset 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  z-index: 100;
+  border-radius: 50%;
+}
+
+body.light .clock::before {
+  background: #008eff;
+}
+
+.clock .hour,
+.clock .minute,
+.clock .seconds {
+  position: absolute;
+}
+
+.clock .hour .hr {
+  width: 160px;
+  height: 160px;
+}
+
+.clock .minute .mn {
+  width: 190px;
+  height: 190px;
+}
+
+.clock .seconds .sc {
+  width: 200px;
+  height: 200px;
+}
+
+.hr,
+.mn,
+.sc {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* position: absolute; */
+  border-radius: 50%;
+}
+
+.hr::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 80px;
+  background: #ff105e;
+  border-radius: 6px 6px 0 0;
+  z-index: 10;
+}
+
+.mn::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 90px;
+  background: #fff;
+  border-radius: 6px 6px 0 0;
+  z-index: 11;
+}
+
+body.light .mn::before {
+  background: #091921;
+}
+
+.sc::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 150px;
+  background: #008eff;
+  border-radius: 6px 6px 0 0;
+  z-index: 12;
+}
+
+.toggleClass {
+  position: absolute;
+  top: 30px;
+  right: 150px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d1dae3;
+  color: #d1dae3;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: consolas;
+  display: flex;
+  align-items: center;
+}
+
+.toggleClass::before {
+  position: absolute;
+  content: "Light Mode";
+  white-space: nowrap;
+  left: 25px;
+}
+
+body.light .toggleClass {
+  background: #091921;
+  color: #091921;
+}
+
+body.light .toggleClass::before {
+  content: "Dark Mode";
+}
+
+@media screen and (max-width: 650px) {
+  .clock {
+    width: 320px;
+    height: 320px;
+  }
+}
